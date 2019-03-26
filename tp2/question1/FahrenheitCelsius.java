@@ -1,5 +1,7 @@
 package question1;
 
+import java.util.Scanner;
+
 /**
  * Décrivez votre classe FahrenheitCelsius ici.
  * 
@@ -17,10 +19,19 @@ public class FahrenheitCelsius {
 	 */
 	public static void main(String[] args) {
 		// pour tous les paramètres de la ligne de commande
-		int fahrenheit = 0;
-		float celsius = 0;
-		System.out.println(fahrenheit + "\u00B0F -> " + celsius + "\u00B0C"); // ligne,
-																				// format
+	      
+              float celsius = 0;
+		
+              int[] tabFahrenheit= new int[args.length];
+              
+              for(int i=0; i<args.length; i++){
+                  tabFahrenheit[i]= Integer.parseInt(args[i]);
+              }
+               
+              for(int i=0; i<args.length; i++){
+                  celsius=fahrenheitEnCelsius(tabFahrenheit[i]);
+	          System.out.println(tabFahrenheit[i] + "\u00B0F -> " + celsius + "\u00B0C"); // ligne,
+	       }																			// format
 																				// imposés
 																				
 	}
@@ -33,8 +44,10 @@ public class FahrenheitCelsius {
 	 * @return la conversion en degré Celsius
 	 */
 	public static float fahrenheitEnCelsius(int f) {
-
-		return 0.F; // à compléter en remplaçant ce return 0.F par la fonction
+	    
+            float res = (float)(f - 32)*5/9;
+            float celsius = ((int)(res*10))/10.0f;
+		return celsius; // à compléter en remplaçant ce return 0.F par la fonction
 					// de conversion
 	}
 
